@@ -7,6 +7,12 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+enum class AsteroidApiFilter(val value: String) {
+    SHOW_TODAY("today"),
+    SHOW_WEEK("week"),
+    SHOW_ALL("all")
+}
+
 interface AsteroidService {
     @GET("neo/rest/v1/feed")
     suspend fun getAsteroids(
@@ -22,4 +28,5 @@ private val retrofit = Retrofit.Builder()
         .baseUrl(Constants.BASE_URL)
         .addConverterFactory(ScalarsConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
+        .client(getHttpClient())
         .build()
