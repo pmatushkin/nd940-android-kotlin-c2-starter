@@ -2,6 +2,7 @@ package com.udacity.asteroidradar.main
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.udacity.asteroidradar.Asteroid
 import com.udacity.asteroidradar.api.AsteroidApiFilter
 import com.udacity.asteroidradar.api.PictureOfDay
 import com.udacity.asteroidradar.api.PictureOfDayApi
@@ -19,6 +20,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         get() = _pictureOfDay
 
     private val _asteroidFilter = MutableLiveData<AsteroidApiFilter>()
+
+    private val _navigateToDetail = MutableLiveData<Asteroid>()
+    val navigateToDetail: LiveData<Asteroid>
+        get() = _navigateToDetail
 
     init {
         getPictureOfDay()
@@ -60,5 +65,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun updateAsteroidList(filter: AsteroidApiFilter) {
         _asteroidFilter.value = filter
+    }
+
+    fun onAsteroidClicked(asteroid: Asteroid) {
+        _navigateToDetail.value = asteroid
+    }
+
+    fun onAsteroidNavigated() {
+        _navigateToDetail.value = null
     }
 }
