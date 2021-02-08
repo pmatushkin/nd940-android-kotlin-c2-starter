@@ -1,9 +1,2 @@
-# Purpose of this Folder
-
-This folder should contain the scaffolded project files to get a student started on their project. This repo will be added to the Classroom for students to use, so please do not have any solutions in this folder.
-
-## Note: Android Kotlin Gradle Update
-Use the updated Gradle version in the `~/gradle/wrapper/gradle-wrapper.properties` file:
-```
-distributionUrl = https\://services.gradle.org/distributions/gradle-6.1.1-all.zip
-```
+Please add your API key here:
+https://github.com/pmatushkin/nd940-android-kotlin-c2-starter/blob/f79780f87a7fc4cbf2c66e39fd4ff639153ad59d/starter/app/src/main/java/com/udacity/asteroidradar/Constants.kt#L7
